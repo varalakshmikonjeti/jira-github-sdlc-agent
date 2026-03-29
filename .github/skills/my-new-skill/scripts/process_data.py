@@ -37,15 +37,16 @@ def get_jira_ticket(ticket_id):
 # -----------------------------
 def create_branch(ticket_id):
     branch_name = f"feature/{ticket_id}"
-    os.system(f"git checkout -b {branch_name}")
-    return branch_name
+    os.system(f"git checkout -B {branch_name}")
+    return branch_name      
 
 
 # -----------------------------
 # Commit Changes
 # -----------------------------
 def commit_changes(ticket_id):
-    os.system("git add . -- ':!.env'")
+    os.system("git add .")
+    os.system("git reset .env")
     os.system(f'git commit -m "Changes for {ticket_id}"')
 
 
