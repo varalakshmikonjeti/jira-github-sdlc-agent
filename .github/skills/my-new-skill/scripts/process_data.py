@@ -45,7 +45,7 @@ def create_branch(ticket_id):
 # Commit Changes
 # -----------------------------
 def commit_changes(ticket_id):
-    os.system("git add .")
+    os.system("git add . -- ':!.env'")
     os.system(f'git commit -m "Changes for {ticket_id}"')
 
 
