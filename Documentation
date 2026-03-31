@@ -1,0 +1,231 @@
+ # 🚀 Jira to GitHub Automation Project
+
+## 📌 Overview
+
+This project automates the process of converting a Jira ticket into a GitHub workflow. It performs the following actions automatically:
+
+* Fetches a Jira ticket
+* Creates a Git branch based on the ticket
+* Commits changes
+* Pushes the branch to GitHub
+* Creates a Pull Request (PR)
+
+---
+
+## 🎯 Objective
+
+The goal of this project is to simulate a real-world DevOps workflow where:
+
+👉 Developers pick a Jira ticket
+👉 Work on code
+👉 Create a branch
+👉 Push changes
+👉 Raise a PR for review
+
+This script automates all these steps.
+
+---
+
+## 🛠️ Tools & Technologies Used
+
+* Python
+* Git & GitHub
+* Jira API
+* Requests library
+* dotenv (.env for secrets)
+
+---
+
+## 📂 Project Structure
+
+```
+my-agent-workspace/
+│
+├── .github/
+│   └── skills/my-new-skill/scripts/process_data.py
+│
+├── .env                # Contains API tokens (NOT pushed to GitHub)
+├── .gitignore          # Prevents .env from being pushed
+├── README.md
+└── output/
+```
+
+---
+
+## 🔐 Environment Variables (.env)
+
+These are required to connect to Jira and GitHub:
+
+```
+GITHUB_TOKEN=your_token
+JIRA_URL=https://your-domain.atlassian.net
+JIRA_USERNAME=your_email
+JIRA_API_TOKEN=your_jira_token
+```
+
+👉 Important:
+
+* `.env` should NEVER be pushed to GitHub
+* It is used only locally
+
+---
+
+## ⚙️ How the Script Works
+
+### 1. Fetch Jira Ticket
+
+* Uses Jira API
+* Gets ticket details like:
+
+  * Key (SCRUM-1)
+  * Summary
+  * Description
+
+---
+
+### 2. Create Git Branch
+
+```
+feature/SCRUM-1
+```
+
+* Branch is created based on ticket ID
+
+---
+
+### 3. Commit Changes
+
+* Adds project files
+* Excludes `.env`
+* Creates commit message:
+
+```
+Changes for SCRUM-1
+```
+
+---
+
+### 4. Push to GitHub
+
+* Pushes branch to remote repository
+
+---
+
+### 5. Create Pull Request
+
+* Uses GitHub API
+* Creates PR from:
+
+```
+feature/SCRUM-1 → main
+```
+
+---
+
+## 🔥 Problems Faced & Fixes
+
+### ❌ Issue 1: Missing Jira URL
+
+**Error:** Invalid URL 'None/...'
+
+✅ Fix:
+
+* Added `.env`
+* Loaded using `load_dotenv()`
+
+---
+
+### ❌ Issue 2: Jira Permission Error
+
+**Error:** Issue does not exist
+
+✅ Fix:
+
+* Verified ticket in Jira
+* Used correct project key (SCRUM-1)
+
+---
+
+### ❌ Issue 3: GitHub Push Blocked
+
+**Error:** Push contains secrets
+
+✅ Fix:
+
+* Removed `.env` from commits
+* Added `.env` to `.gitignore`
+
+---
+
+### ❌ Issue 4: No PR Created
+
+**Error:** No commits between branches
+
+✅ Fix:
+
+* Made manual change in README.md
+* Created actual commit
+
+---
+
+### ❌ Issue 5: Branch Reset Issue
+
+**Cause:** Using `git checkout -B`
+
+👉 It resets branch and removes changes
+
+---
+
+## ✅ Final Outcome
+
+✔ Successfully automated:
+
+* Jira → Git workflow
+* Git → GitHub push
+* GitHub → PR creation
+
+✔ Created Pull Requests automatically
+
+---
+
+## 💡 Key Learnings
+
+* How APIs work (Jira & GitHub)
+* Importance of environment variables
+* Git branching and commits
+* Secret management in GitHub
+* Debugging real-world DevOps issues
+
+---
+
+## 📈 Real-World Use Case
+
+This project simulates:
+
+👉 DevOps CI/CD pipeline step
+👉 Jira-based development workflow
+👉 Automated PR generation
+
+---
+
+## 🏁 Conclusion
+
+This project demonstrates a complete DevOps automation flow integrating Jira and GitHub.
+
+It shows your ability to:
+
+* Work with APIs
+* Automate workflows
+* Handle Git operations
+* Solve real-world errors
+
+---
+
+## 🔗 Sample Output
+
+✔ Pull Request created successfully:
+
+```
+https://github.com/varalakshmikonjeti/jira-github-sdlc-agent/pull/2
+```
+
