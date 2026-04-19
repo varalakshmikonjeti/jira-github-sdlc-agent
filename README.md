@@ -49,3 +49,4 @@ Konjeti Varalakshmi
 🔗 LinkedIn: https://www.linkedin.com/in/varalakshmi-konjeti-5b2408229/  
 🌐 Portfolio: https://varalakshmikonjeti.github.io/konjeti-varalakshmi-portfolio  
 💻 GitHub: https://github.com/varalakshmikonjeti
+# Update for SCRUM-1
